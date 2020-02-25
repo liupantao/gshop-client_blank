@@ -18,7 +18,7 @@
       </span>
       <span>订单</span>
     </a>
-    <a href="javascript:;" class="guide_item" :class="{on : isCurrentUrl('/Profile')}" @click="goto('/profile')">
+    <a href="javascript:;" class="guide_item" :class="{on : isCurrentUrl('/Profile')}" @click="goto('/Profile')">
       <span class="item_icon">
         <i class="iconfont icon-geren"></i>
       </span>

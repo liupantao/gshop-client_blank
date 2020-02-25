@@ -147,6 +147,8 @@ import 'swiper/css/swiper.css'
 
 import HeaderTop from '../../components/HeaderTop/HeaderTop.vue'
 import ShopList from '../../components/ShopList/ShopList.vue'
+
+
 export default {
   components: {
     HeaderTop,
