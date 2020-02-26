@@ -1,18 +1,8 @@
 <template>
     <section class="msite">
       <!--首页头部-->
-      <header class="header">
-          <span class="header_search">
-            <i class="iconfont icon-sousuo"></i>
-          </span>
-        <span class="header_title">
-            <span class="header_title_text ellipsis">昌平区北七家宏福科技园(337省道北)</span>
-          </span>
-        <span class="header_login">
-            <span class="header_login_text">登录|注册</span>
-          </span>
-      </header>
-      <header-top title="顺义石园北一社区">
+
+      <header-top :title="address.name">
         <router-link slot="search" to="/search" class="header_search">
          <i class="iconfont icon-sousuo"></i>
         </router-link> <router-link slot="login" to="/login" class="header_login">
@@ -143,6 +133,7 @@
 
 import Swiper from 'swiper'
 import 'swiper/css/swiper.css'
+import  {mapState} from 'vuex'
 
 
 import HeaderTop from '../../components/HeaderTop/HeaderTop.vue'
@@ -174,6 +165,9 @@ export default {
         el: '.swiper-scrollbar',
       },
     })
+  },
+  computed: {
+    ...mapState(['address'])
   }
 }
 
