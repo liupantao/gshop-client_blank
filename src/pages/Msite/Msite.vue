@@ -55,51 +55,32 @@ export default {
     HeaderTop,
     ShopList
   },
-  data (){
+  data () {
     return {
       imaBaseUrl: 'https://fuss10.elemecdn.com',
     }
   },
   mounted () {
     this.$store.dispatch('getCategorys')
-    new Swiper ('.swiper-container', {
-      loop: true, // 循环模式选项
-
-      // 如果需要分页器
-      pagination: {
-        el: '.swiper-pagination',
-      },
-
-      // 如果需要前进后退按钮
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-
-      // 如果需要滚动条
-      scrollbar: {
-        el: '.swiper-scrollbar',
-      },
-    })
   },
   computed: {
-    ...mapState(['address','categorys']),
+    ...mapState(['address', 'categorys']),
     categorysArr () { //一个二维数组
 
       const max = 8
-      const arr=[]
+      const arr = []
 
       //把一维数组取出来
-      const {categorys} =this
+      const {categorys} = this
 
       let smartArr = []
 
-      categorys.forEach( c => {
-        if(smartArr.length === 0){
+      categorys.forEach(c => {
+        if (smartArr.length === 0) {
           arr.push(smartArr) //两个数组建立关联
         }
         smartArr.push(c)
-        if(smartArr.length === max){
+        if (smartArr.length === max) {
           smartArr = []
         }
 
@@ -107,9 +88,33 @@ export default {
       return arr;
 
     }
+  },
+  watch: {
+    categorys (values) {
+      this.$nextTick( () => {
+        new Swiper ('.swiper-container', {
+          loop: true, // 循环模式选项
+
+          // 如果需要分页器
+          pagination: {
+            el: '.swiper-pagination',
+          },
+
+          // 如果需要前进后退按钮
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+
+          // 如果需要滚动条
+          scrollbar: {
+            el: '.swiper-scrollbar',
+          },
+        })
+      })
+    }
   }
 }
-
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
