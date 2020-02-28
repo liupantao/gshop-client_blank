@@ -18,7 +18,7 @@ export  default {
   // 异步获取食品分类列表
   async getCategorys({commit}) {
     // 发送异步ajax请求
-    const result = await reqFoodCategorys()
+    const result = await reqCategorys()
     // 提交一个mutation
     if (result.code === 0) {
       const categorys = result.data
