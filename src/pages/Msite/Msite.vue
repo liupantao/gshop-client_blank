@@ -62,6 +62,7 @@ export default {
   },
   mounted () {
     this.$store.dispatch('getCategorys')
+    this.$store.dispatch('getShops')
   },
   computed: {
     ...mapState(['address', 'categorys']),
